@@ -1,0 +1,377 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #A7F3D0 0%, #16A34A 100%);
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(22, 163, 74, 0.15);
+    margin-bottom: 35px;
+    text-align: center;
+    border-top: 5px solid #16A34A;
+}
+
+.header h1 {
+    color: #1F2937;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: #6B7280;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Sección de métricas superiores - REDISEÑADA */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.metric-card {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #16A34A;
+    transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(22, 163, 74, 0.2);
+}
+
+.metric-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.metric-icon {
+    font-size: 32px;
+}
+
+.metric-trend {
+    background: #A7F3D0;
+    color: #16A34A;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.metric-title {
+    color: #6B7280;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    color: #1F2937;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.metric-description {
+    color: #9CA3AF;
+    font-size: 13px;
+}
+
+/* Sección de análisis visual - REDISEÑADA */
+.analysis-section {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 35px;
+}
+
+.analysis-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.analysis-header h2 {
+    color: #1F2937;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.analysis-header p {
+    color: #6B7280;
+    font-size: 15px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.chart-container {
+    text-align: center;
+}
+
+.chart-title {
+    color: #1F2937;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.progress-ring {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 20px;
+}
+
+.progress-ring svg {
+    transform: rotate(-90deg);
+}
+
+.progress-ring circle {
+    fill: none;
+    stroke-width: 14;
+}
+
+.ring-bg {
+    stroke: #F3F4F6;
+}
+
+.ring-progress {
+    stroke: #16A34A;
+    stroke-linecap: round;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    animation: fillRing 2s ease-out forwards;
+}
+
+@keyframes fillRing {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.progress-ring .center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-ring .percentage {
+    display: block;
+    font-size: 42px;
+    font-weight: 700;
+    color: #16A34A;
+    line-height: 1;
+}
+
+.progress-ring .label {
+    display: block;
+    font-size: 14px;
+    color: #6B7280;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #4B5563;
+    font-weight: 500;
+}
+
+.legend-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.question-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+    transition: transform 0.2s ease;
+}
+
+.question-card:hover {
+    transform: translateX(5px);
+}
+
+.question-number {
+    display: inline-block;
+    background: #16A34A;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.question-text {
+    font-size: 17px;
+    color: #1F2937;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option {
+    padding: 15px 20px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.option:hover {
+    border-color: #A7F3D0;
+    background: #F0FDF4;
+}
+
+.option.selected {
+    background: #16A34A;
+    border-color: #16A34A;
+    color: white;
+    font-weight: 600;
+}
+
+.option::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid #D1D5DB;
+    border-radius: 50%;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.option.selected::before {
+    background: white;
+    border-color: white;
+    box-shadow: inset 0 0 0 4px #16A34A;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: auto;
+}
+
+.status-badge.positive {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.status-badge.warning {
+    background: #FEF3C7;
+    color: #92400E;
+}
+
+.footer {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    text-align: center;
+    margin-top: 35px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #16A34A;
+}
+
+.footer h2 {
+    color: #16A34A;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.footer p {
+    color: #4B5563;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.footer .highlight {
+    color: #16A34A;
+    font-weight: 600;
+    margin-top: 15px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 24px;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-ring {
+        width: 200px;
+        height: 200px;
+    }
+
+    .question-card {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@400;700&family=Poppins:wght@400;500;600&family=Inter:wght@400;500&family=Marvel:wght@700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #1b234a;
+    --text-grey: #484848;
+    --text-black: #1e1e1e;
+    --bg-light-blue: #f2f5ff;
+    --bg-grey: #eceff1;
+    --border-grey: #bdbdbd;
+    --border-dark: #0f0000;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: white;
+    color: var(--text-black);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    padding: 20px 0;
+    border-bottom: 0;
+    box-shadow: none;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-menu {
+    position: relative;
+    width: 82px;
+    height: 46px;
+}
+
+.dropdown-button {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid var(--border-grey);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.logo {
+    width: 104px;
+    height: 100px;
+    border-radius: 170px;
+    object-fit: cover;
+}
+
+.brand-name {
+    font-size: 23px;
+    font-weight: 400;
+    color: black;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 16px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-blue);
+}
+
+nav .separator {
+    color: black;
+}
+
+main {
+    flex: 1;
+    padding: 40px 0;
+}
+
+.page-title {
+    font-family: "Volkhov", serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+/* ===== Selector de mes ===== */
+.month-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid black;
+    background: white;
+    width: fit-content;
+}
+
+.month-selector .dropdown-icon {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46px;
+    color: black;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.month-selector .dropdown-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #eef1f5; /* gris claro */
+    border-radius: 4px;
+    z-index: -1;
+}
+
+.month-selector .month-text {
+    font-family: "Volkhov", serif;
+    font-size: 46px;
+    color: var(--text-grey);
+}
+
+
+/* ===== Dashboard ===== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+    align-items: stretch;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+}
+
+.dashboard-card:nth-child(3n) {
+    border-right: none;
+}
+
+.card-header {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-family: "Volkhov", serif;
+    font-size: 46px;
+    color: var(--text-grey);
+    margin-bottom: 20px;
+}
+
+/* Todas las gráficas centradas vertical/horizontal */
+.card-content {
+    padding: 20px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-footer {
+    padding: 20px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-more {
+    background: white;
+    border: 2px solid var(--primary-blue);
+    padding: 10px 32px;
+    font-family: "Volkhov", serif;
+    font-size: 16px;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-more:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* ===== Tabla de pedidos ===== */
+.table-container {
+    overflow-x: auto;
+    margin: 30px 0 40px;
+    flex: 0 0 auto;
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table thead {
+    background-color: #f5f5f5;
+}
+
+.orders-table th {
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 2px solid #ddd;
+}
+
+.orders-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.orders-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* ===== Últimos pedidos / botón al fondo ===== */
+.section-title {
+    font-family: "Vollkorn", serif;
+    font-size: 64px;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.orders-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 540px;        /* espacio “respirable” como la maqueta */
+}
+
+.btn-update {
+    align-self: center;       /* evita que se expanda al 100% */
+    display: inline-flex;     /* tamaño justo al contenido */
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    background: white;
+    border: 2px solid var(--primary-blue);
+    font-family: "Marvel", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: auto;         /* empuja hacia el fondo de la sección */
+    margin-bottom: 40px;      /* separación antes del footer azul */
+}
+
+.btn-update:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.btn-update img {
+    width: 28px;
+    height: 28px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: var(--bg-light-blue);
+    padding: 60px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-content {
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    color: var(--text-grey);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-card {
+        border-right: none;
+    }
+
+    .page-title {
+        font-size: 48px;
+    }
+
+    .section-title {
+        font-size: 48px;
+    }
+
+    .orders-section {
+        min-height: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-title {
+        font-size: 36px;
+    }
+}

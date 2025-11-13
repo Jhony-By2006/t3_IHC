@@ -1,0 +1,441 @@
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 960px;
+  margin: 20px auto 80px;
+  padding: 0 12px;
+}
+
+/* Barra superior */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px 10px 0;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+/* Menu hamburguesa (icono) */
+.menu-icon {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 15px;
+  display: none; /* Visible solo en responsivo */
+  user-select: none;
+  position: relative;
+}
+
+/* Logo pequeño */
+.logo-small {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Cabecera principal con logo y nombre */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+}
+
+/* Navegación derecha: lista horizontal */
+nav {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+nav a {
+  color: #374151;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor desplegable menú (para responsivo) */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 150;
+}
+
+.nav-dropdown a {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-dropdown a:last-child {
+  border-bottom: none;
+}
+
+/* Título principal */
+h1 {
+  font-weight: 700;
+  font-size: 28px;
+  margin: 20px 0 10px 0;
+}
+
+/* Sección administrador */
+.admin-section {
+  background-color: #e0e7ff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.admin-section h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+/* Buscador superior */
+.search-bar {
+  width: 100%;
+  max-width: 360px;
+  height: 30px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  padding: 5px 30px 5px 30px;
+  font-size: 14px;
+  background:
+    url("data:image/svg+xml,%3Csvg fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E")
+    no-repeat 8px center;
+  background-size: 18px 18px;
+  outline-offset: 2px;
+}
+
+.search-wrapper {
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 360px;
+}
+
+/* Botón limpiar X */
+.clear-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 0;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  display: none;
+}
+
+.clear-btn.active {
+  display: block;
+}
+
+/* Layout filtros y tabla */
+.content-flex {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Filtros formulario */
+.filters {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px 15px;
+  min-width: 280px;
+  max-width: 360px;
+  flex: 1 1 320px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.filters h2 {
+  margin-top: 0;
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.filters label {
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+  color: #374151;
+}
+
+.filters input {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+
+.filters input:focus {
+  border-color: #2563eb;
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.4);
+}
+
+/* Botones acciones filtros */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.filter-buttons button {
+  flex: 1 1 140px;
+  border: 1px dashed #6b7280;
+  background-color: transparent;
+  color: #374151;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.filter-buttons button:hover {
+  background-color: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* Tabla estilo */
+.providers-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 540px;
+  flex: 2 1 580px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.providers-table thead {
+  background-color: #f3f4f6;
+}
+
+.providers-table th,
+.providers-table td {
+  border: 1px solid #e5e7eb;
+  padding: 8px 10px;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.providers-table th {
+  font-weight: 600;
+  color: #374151;
+  user-select: none;
+}
+
+.providers-table td.actions {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.providers-table button.action-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  margin: 0 2px;
+  border-radius: 9999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.providers-table button.action-btn.actualizar {
+  background-color: #2563eb;
+  color: white;
+}
+
+.providers-table button.action-btn.actualizar:hover {
+  background-color: #1d4ed8;
+}
+
+.providers-table button.action-btn.reordenar {
+  background-color: #6b7280;
+  color: white;
+}
+
+.providers-table button.action-btn.reordenar:hover {
+  background-color: #4b5563;
+}
+
+/* Contenedor actualizar tabla y paginacion */
+.table-footer {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-actualizar {
+  display: flex;
+  align-items: center;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2563eb;
+  transition: background-color 0.2s;
+}
+
+.btn-actualizar:hover {
+  background-color: #e0e7ff;
+}
+
+.btn-actualizar svg {
+  margin-left: 6px;
+  stroke-width: 2.5;
+}
+
+/* Paginación simple */
+.pagination {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pagination span {
+  font-size: 13px;
+  color: #374151;
+  user-select: none;
+  min-width: 40px;
+  text-align: center;
+}
+
+.pagination button {
+  background: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagination button:disabled {
+  color: #9ca3af;
+  cursor: default;
+}
+
+.pagination button:not(:disabled):hover {
+  background-color: #e0e7ff;
+  border-color: #a5b4fc;
+}
+
+/* Footer grandes */
+footer {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+footer img.logo-large {
+  max-width: 140px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+/* - - - Responsivo - - - */
+@media (max-width: 850px) {
+  /* Mostrar menú hamburguesa */
+  .menu-icon {
+    display: block;
+  }
+  
+  /* Ocultar nav original (links horizontales) */
+  nav.main-nav {
+    display: none;
+  }
+
+  /* Mostrar nav dropdown solo cuando activo */
+  nav.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 9999;
+    padding: 5px 0;
+  }
+  
+  nav.nav-dropdown.show {
+    display: flex;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  
+  .admin-section h2 {
+    font-size: 18px;
+  }
+}

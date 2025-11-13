@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Administrador - Clientes</title>
+<link rel="stylesheet" href="../CSS/ADministtradorcliente.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <div class="menu-icon" title="Menú" id="menuToggle" aria-label="Abrir menú de navegación">&#9776;</div>
+        <img
+          src="../assets/images/img_c1f9ca21_fb0b_4.png"
+          alt="Plastmanic Logo"
+          class="logo-small"
+          height="30"
+        />
+        <span><strong>Plastmanic</strong></span>
+      </div>
+
+      <!-- Nav original: links horizontales -->
+      <nav class="main-nav" aria-label="Menú principal">
+        <a href="Panel Administrador.html">Panel de administrador</a>
+        <a href="AdministradorProveedor.html">Proveedores</a>
+        <a href="Administrador Inventario.html">Inventario</a>
+        <a href="AdministradorReportes.html">Reportes</a>
+      </nav>
+
+      <!-- Nav dropdown para responsivo -->
+      <nav class="nav-dropdown" id="navDropdown" aria-label="Menú desplegable navegación responsiva" role="menu">
+        <a href="#" role="menuitem">Panel de administrador</a>
+        <a href="#" role="menuitem">Proveedores</a>
+        <a href="#" role="menuitem">Inventario</a>
+        <a href="#" role="menuitem">Reportes</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Administrador - Clientes</h1>
+
+      <div class="search-wrapper">
+        <input
+          type="search"
+          class="search-bar"
+          placeholder="Buscador"
+          id="searchInput"
+          aria-label="Buscador general"
+        />
+        <button
+          aria-label="Limpiar búsqueda"
+          class="clear-btn"
+          id="clearSearchBtn"
+          title="Limpiar búsqueda"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="content-flex">
+        <section class="filters" aria-labelledby="filters-title">
+          <h2 id="filters-title">Búsqueda / filtros</h2>
+          <form id="filtersForm" onsubmit="return false;">
+            <label for="nombreApellidoInput">Nombre y Apellidos</label>
+            <input type="text" id="nombreApellidoInput" name="nombreApellido" autocomplete="off" />
+
+            <label for="documentoInput">Documento</label>
+            <input type="text" id="documentoInput" name="documento" autocomplete="off" />
+
+            <label for="telefonoInput">Teléfono</label>
+            <input type="text" id="telefonoInput" name="telefono" autocomplete="off" />
+
+            <label for="ultimaCompraInput">Última compra</label>
+            <input type="text" id="ultimaCompraInput" name="ultimaCompra" autocomplete="off" placeholder="dd/mm/yyyy" />
+
+            <label for="ticketInput">Ticket</label>
+            <input type="text" id="ticketInput" name="ticket" autocomplete="off" />
+
+            <label for="accionesInput">Acciones</label>
+            <input type="text" id="accionesInput" name="acciones" disabled placeholder="-" />
+
+            <div class="filter-buttons" role="group" aria-label="Acciones filtro">
+              <button type="button" id="btnNuevoProducto">Nuevo Producto</button>
+              <button type="button" id="btnEliminar">Eliminar</button>
+              <button type="button" id="btnExportarCV">Exportar CV</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Tabla clientes -->
+        <section style="flex: 2 1 580px; min-width: 540px;">
+          <table class="clients-table" aria-label="Listado de clientes">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Documento</th>
+                <th>Teléfono</th>
+                <th>Última compra</th>
+                <th>Ticket promedio</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="clientesTbody">
+              <tr>
+                <td>Juan Pérez</td>
+                <td>12345678</td>
+                <td>987654321</td>
+                <td>20/10/2025</td>
+                <td>S/ 120.00</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-doc="12345678" title="Actualizar Juan Pérez">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Maria Gómez</td>
+                <td>87654321</td>
+                <td>987123456</td>
+                <td>18/10/2025</td>
+                <td>S/ 80.50</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-doc="87654321" title="Reordenar Maria Gómez">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Pedro Rodríguez</td>
+                <td>11223344</td>
+                <td>963852741</td>
+                <td>15/10/2025</td>
+                <td>S/ 100.00</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-doc="11223344" title="Reordenar Pedro Rodríguez">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Ana Ruiz</td>
+                <td>22334455</td>
+                <td>931234567</td>
+                <td>10/10/2025</td>
+                <td>S/ 95.30</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-doc="22334455" title="Actualizar Ana Ruiz">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Carlos López</td>
+                <td>33445566</td>
+                <td>924567890</td>
+                <td>05/10/2025</td>
+                <td>S/ 110.00</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-doc="33445566" title="Reordenar Carlos López">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Luis García</td>
+                <td>44556677</td>
+                <td>975431234</td>
+                <td>03/10/2025</td>
+                <td>S/ 130.80</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-doc="44556677" title="Actualizar Luis García">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Sofía Martínez</td>
+                <td>55667788</td>
+                <td>956732159</td>
+                <td>01/10/2025</td>
+                <td>S/ 75.00</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-doc="55667788" title="Reordenar Sofía Martínez">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Gabriel Castro</td>
+                <td>66778899</td>
+                <td>981234567</td>
+                <td>29/09/2025</td>
+                <td>S/ 85.20</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-doc="66778899" title="Actualizar Gabriel Castro">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Marta Pérez</td>
+                <td>77889900</td>
+                <td>944567891</td>
+                <td>25/09/2025</td>
+                <td>S/ 140.00</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-doc="77889900" title="Reordenar Marta Pérez">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>Javier Fernández</td>
+                <td>88990011</td>
+                <td>983456720</td>
+                <td>20/09/2025</td>
+                <td>S/ 120.50</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-doc="88990011" title="Actualizar Javier Fernández">Actualizar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-footer" aria-label="Controles de tabla">
+            <button class="btn-actualizar" id="btnActualizarTabla" title="Actualizar tabla">
+              ACTUALIZAR TABLA
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582M20 20v-5h-.581M5.401 19.424a9 9 0 1112.197-12.197M15 6h.01M9 18h.01" />
+              </svg>
+            </button>
+
+            <nav class="pagination" aria-label="Paginación">
+              <button id="pagePrev" aria-label="Página anterior" disabled>&lt;</button>
+              <span id="pageNumber">01</span>
+              <button id="pageNext" aria-label="Página siguiente">&gt;</button>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="Logo PlastManic" class="logo-large" aria-hidden="true"
+    />
+    <div>Copyright © 2022 FASCO. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // Limpiar botón buscador y funcionalidad
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+    function toggleClearBtn() {
+      if (searchInput.value.trim() !== "") {
+        clearSearchBtn.classList.add("active");
+      } else {
+        clearSearchBtn.classList.remove("active");
+      }
+    }
+
+    searchInput.addEventListener("input", () => {
+      toggleClearBtn();
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      toggleClearBtn();
+      searchInput.focus();
+    });
+
+    // Acciones de botones actualizar/reordenar
+    document.querySelectorAll(".action-btn.actualizar").forEach(btn => {
+      btn.addEventListener("click", () =>
+        alert(`Actualizar cliente con documento: ${btn.dataset.doc}`)
+      );
+    });
+    document.querySelectorAll(".action-btn.reordenar").forEach(btn => {
+      btn.addEventListener("click", () =>
+        alert(`Reordenar cliente con documento: ${btn.dataset.doc}`)
+      );
+    });
+
+    // Botones Nuevo Producto, Eliminar, Exportar
+    document.getElementById("btnNuevoProducto").addEventListener("click", () => {
+      alert("Nuevo Producto - acción simulada");
+    });
+    document.getElementById("btnEliminar").addEventListener("click", () => {
+      alert("Eliminar - acción simulada");
+    });
+    document.getElementById("btnExportarCV").addEventListener("click", () => {
+      alert("Exportar CV - acción simulada");
+    });
+
+    // Botón actualizar tabla
+    document.getElementById("btnActualizarTabla").addEventListener("click", () => {
+      alert("Tabla actualizada (acción simulada)");
+    });
+
+    // Paginación simulada
+    const pageNumber = document.getElementById("pageNumber");
+    const btnPrev = document.getElementById("pagePrev");
+    const btnNext = document.getElementById("pageNext");
+    let currentPage = 1;
+    const totalPages = 1;
+
+    function updatePagination() {
+      pageNumber.textContent = currentPage.toString().padStart(2, "0");
+      btnPrev.disabled = currentPage <= 1;
+      btnNext.disabled = currentPage >= totalPages;
+    }
+    btnPrev.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+    btnNext.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+
+    updatePagination();
+    toggleClearBtn();
+
+    // Toggle menú desplegable solo los links en mobil
+    const menuToggle = document.getElementById("menuToggle");
+    const navDropdown = document.getElementById("navDropdown");
+
+    menuToggle.addEventListener("click", () => {
+      navDropdown.classList.toggle("show");
+    });
+
+    // Cerrar menu con click fuera
+    document.addEventListener("click", e => {
+      if (!menuToggle.contains(e.target) && !navDropdown.contains(e.target)) {
+        navDropdown.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+<script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
+</html>

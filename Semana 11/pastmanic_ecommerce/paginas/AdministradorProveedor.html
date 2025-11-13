@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Administrador - Proveedores</title>
+<link rel="stylesheet" href="../CSS/AdministradorProveedores.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-left">
+        <div class="menu-icon" title="Menú" id="menuToggle" aria-label="Abrir menú de navegación">&#9776;</div>
+        <img
+          src="../assets/images/img_c1f9ca21_fb0b_4.png"
+          alt="Plastmanic Logo"
+          class="logo-small"
+          height="30"
+        />
+        <span><strong>PastManic</strong></span>
+      </div>
+
+      <!-- Nav original: links horizontales -->
+      <nav class="main-nav" aria-label="Menú principal">
+        <a href="Panel Administrador.html">Panel de administrador</a>
+        <a href="Administrador Inventario.html">Inventario</a>
+        <a href="Administradorcliente.html">Clientes</a>
+        <a href="AdministradorReportes.html">Reportes</a>
+      </nav>
+
+      <!-- Nav dropdown para responsivo -->
+      <nav class="nav-dropdown" id="navDropdown" aria-label="Menú desplegable navegación responsiva" role="menu">
+        <a href="Panel Administrador.html">Panel de administrador</a>
+        <a href="Administrador Inventario.html">Inventario</a>
+        <a href="Administradorcliente.html">Clientes</a>
+        <a href="AdministradorReportes.html">Reportes</a>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Administrador - Proveedores</h1>
+
+      <div class="search-wrapper">
+        <input
+          type="search"
+          class="search-bar"
+          placeholder="Buscador"
+          id="searchInput"
+          aria-label="Buscador general"
+        />
+        <button
+          aria-label="Limpiar búsqueda"
+          class="clear-btn"
+          id="clearSearchBtn"
+          title="Limpiar búsqueda"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="admin-section">
+        <h2>Administrador de Proveedores</h2>
+      </div>
+
+      <div class="content-flex">
+        <section class="filters" aria-labelledby="filters-title">
+          <h2 id="filters-title">Búsqueda / filtros</h2>
+          <form id="filtersForm" onsubmit="return false;">
+            <label for="rucInput">RUC</label>
+            <input type="text" id="rucInput" name="ruc" autocomplete="off" />
+
+            <label for="razonSocialInput">Razón Social</label>
+            <input type="text" id="razonSocialInput" name="razonSocial" autocomplete="off" />
+
+            <label for="contactoInput">Contacto</label>
+            <input type="text" id="contactoInput" name="contacto" autocomplete="off" />
+
+            <label for="telefonoInput">Teléfono</label>
+            <input type="text" id="telefonoInput" name="telefono" autocomplete="off" />
+
+            <label for="ultimaCompraInput">Última compra</label>
+            <input type="text" id="ultimaCompraInput" name="ultimaCompra" autocomplete="off" placeholder="dd/mm/yyyy" />
+
+            <label for="accionesInput">Acciones</label>
+            <input type="text" id="accionesInput" name="acciones" disabled placeholder="-" />
+
+            <div class="filter-buttons" role="group" aria-label="Acciones filtro">
+              <button type="button" id="btnNuevoProveedor">Nuevo Proveedor</button>
+              <button type="button" id="btnEliminar">Eliminar</button>
+              <button type="button" id="btnExportarCSV">Exportar CSV</button>
+            </div>
+          </form>
+        </section>
+
+        <!-- Tabla proveedores -->
+        <section style="flex: 2 1 580px; min-width: 540px;">
+          <table class="providers-table" aria-label="Listado de proveedores">
+            <thead>
+              <tr>
+                <th>RUC</th>
+                <th>Razón Social</th>
+                <th>Contacto</th>
+                <th>Teléfono</th>
+                <th>Última compra</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="proveedoresTbody">
+              <tr>
+                <td>20123456789</td>
+                <td>Distribuidora ABC S.A.</td>
+                <td>Juan Pérez</td>
+                <td>987654321</td>
+                <td>30/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20123456789" title="Actualizar Distribuidora ABC S.A.">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20567890123</td>
+                <td>Comercial Luna S.A.C.</td>
+                <td>María Gómez</td>
+                <td>987123456</td>
+                <td>18/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20567890123" title="Actualizar Comercial Luna S.A.C.">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20134567890</td>
+                <td>Supermercados Sol S.A.</td>
+                <td>Pedro Rodríguez</td>
+                <td>963852741</td>
+                <td>15/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-ruc="20134567890" title="Reordenar Supermercados Sol S.A.">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20456789012</td>
+                <td>Productos del Norte S.A.</td>
+                <td>Ana Ruiz</td>
+                <td>931234567</td>
+                <td>10/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20456789012" title="Actualizar Productos del Norte S.A.">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20198765432</td>
+                <td>Alimentos La Reina S.A.</td>
+                <td>Carlos López</td>
+                <td>924567890</td>
+                <td>05/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-ruc="20198765432" title="Reordenar Alimentos La Reina S.A.">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20345678901</td>
+                <td>Distribuciones Rápidas S.A.</td>
+                <td>Luis García</td>
+                <td>975431234</td>
+                <td>03/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20345678901" title="Actualizar Distribuciones Rápidas S.A.">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20123456701</td>
+                <td>Logística Global S.A.</td>
+                <td>Sofía Martínez</td>
+                <td>956732159</td>
+                <td>01/10/2025</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-ruc="20123456701" title="Reordenar Logística Global S.A.">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20456789023</td>
+                <td>Comercial Andares S.A.C.</td>
+                <td>Gabriel Castro</td>
+                <td>981234567</td>
+                <td>29/09/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20456789023" title="Actualizar Comercial Andares S.A.C.">Actualizar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20567890156</td>
+                <td>Corporación Mercado S.A.</td>
+                <td>Marta Pérez</td>
+                <td>944567891</td>
+                <td>25/09/2025</td>
+                <td class="actions">
+                  <button class="action-btn reordenar" data-ruc="20567890156" title="Reordenar Corporación Mercado S.A.">Reordenar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>20134567834</td>
+                <td>Distribuidora El Sol S.A.</td>
+                <td>Javier Fernández</td>
+                <td>983456720</td>
+                <td>20/09/2025</td>
+                <td class="actions">
+                  <button class="action-btn actualizar" data-ruc="20134567834" title="Actualizar Distribuidora El Sol S.A.">Actualizar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="table-footer" aria-label="Controles de tabla">
+            <button class="btn-actualizar" id="btnActualizarTabla" title="Actualizar tabla">
+              ACTUALIZAR TABLA
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582M20 20v-5h-.581M5.401 19.424a9 9 0 1112.197-12.197M15 6h.01M9 18h.01" />
+              </svg>
+            </button>
+
+            <nav class="pagination" aria-label="Paginación">
+              <button id="pagePrev" aria-label="Página anterior" disabled>&lt;</button>
+              <span id="pageNumber">01</span>
+              <button id="pageNext" aria-label="Página siguiente">&gt;</button>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <img
+      src="../assets/images/img_c1f9ca21_fb0b_4.png"
+      alt="Logo PlastManic"
+      class="logo-large"
+      aria-hidden="true"
+    />
+    <div>Copyright © 2022 FASCO. All Rights Reserved.</div>
+  </footer>
+
+  <script>
+    // Limpiar botón buscador y funcionalidad
+    const searchInput = document.getElementById("searchInput");
+    const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+    function toggleClearBtn() {
+      if (searchInput.value.trim() !== "") {
+        clearSearchBtn.classList.add("active");
+      } else {
+        clearSearchBtn.classList.remove("active");
+      }
+    }
+
+    searchInput.addEventListener("input", () => {
+      toggleClearBtn();
+    });
+
+    clearSearchBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      toggleClearBtn();
+      searchInput.focus();
+    });
+
+    // Acciones de botones actualizar/reordenar
+    document.querySelectorAll(".action-btn.actualizar").forEach(btn => {
+      btn.addEventListener("click", () =>
+        alert(`Actualizar proveedor con RUC: ${btn.dataset.ruc}`)
+      );
+    });
+    document.querySelectorAll(".action-btn.reordenar").forEach(btn => {
+      btn.addEventListener("click", () =>
+        alert(`Reordenar proveedor con RUC: ${btn.dataset.ruc}`)
+      );
+    });
+
+    // Botones Nuevo Proveedor, Eliminar, Exportar
+    document.getElementById("btnNuevoProveedor").addEventListener("click", () => {
+      alert("Nuevo Proveedor - acción simulada");
+    });
+    document.getElementById("btnEliminar").addEventListener("click", () => {
+      alert("Eliminar - acción simulada");
+    });
+    document.getElementById("btnExportarCSV").addEventListener("click", () => {
+      alert("Exportar CSV - acción simulada");
+    });
+
+    // Botón actualizar tabla
+    document.getElementById("btnActualizarTabla").addEventListener("click", () => {
+      alert("Tabla actualizada (acción simulada)");
+    });
+
+    // Paginación simulada
+    const pageNumber = document.getElementById("pageNumber");
+    const btnPrev = document.getElementById("pagePrev");
+    const btnNext = document.getElementById("pageNext");
+    let currentPage = 1;
+    const totalPages = 1;
+
+    function updatePagination() {
+      pageNumber.textContent = currentPage.toString().padStart(2, "0");
+      btnPrev.disabled = currentPage <= 1;
+      btnNext.disabled = currentPage >= totalPages;
+    }
+    btnPrev.addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+    btnNext.addEventListener("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+
+    updatePagination();
+    toggleClearBtn();
+
+    // Toggle menú desplegable solo los links en mobil
+    const menuToggle = document.getElementById("menuToggle");
+    const navDropdown = document.getElementById("navDropdown");
+
+    menuToggle.addEventListener("click", () => {
+      navDropdown.classList.toggle("show");
+    });
+
+    // Cerrar menu con click fuera
+    document.addEventListener("click", e => {
+      if (!menuToggle.contains(e.target) && !navDropdown.contains(e.target)) {
+        navDropdown.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+<script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
+</html>

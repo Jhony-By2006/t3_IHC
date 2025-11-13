@@ -1,0 +1,615 @@
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+input, select, button {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Contenedor general */
+.container {
+  max-width: 1200px;
+  margin: 20px auto 80px;
+  padding: 0 20px;
+}
+
+/* Barra superior */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 10px 10px 0;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+/* Menu hamburguesa */
+.menu-icon {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 15px;
+  display: none;
+  user-select: none;
+  position: relative;
+}
+
+/* Logo pequeño */
+.logo-small {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Cabecera con logo */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+}
+
+nav a {
+  color: #374151;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Dropdown menú */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 150;
+}
+
+.nav-dropdown a {
+  padding: 10px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-dropdown a:last-child {
+  border-bottom: none;
+}
+
+/* Título principal */
+h1 {
+  font-weight: 700;
+  font-size: 32px;
+  margin: 20px 0 30px 0;
+}
+
+/* Secciones de reportes */
+.report-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.date-selector label {
+  font-size: 14px;
+  color: #6b7280;
+  background-color: #f3f4f6;
+  padding: 8px 15px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-export {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-export:hover {
+  background-color: #a7f3d0;
+}
+
+.csv-badge {
+  background-color: #10b981;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.export-select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Gráfico de barras */
+.chart-container h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.bar-chart {
+  background-color: #f9fafb;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.chart-bars {
+  margin-bottom: 10px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.bar-label {
+  font-size: 13px;
+  min-width: 180px;
+  text-align: right;
+  color: #374151;
+}
+
+.bar-wrapper {
+  flex: 1;
+  background-color: #e5e7eb;
+  height: 24px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.chart-legend {
+  text-align: center;
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+/* Botón actualizar */
+.btn-update {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #2563eb;
+  transition: background-color 0.2s;
+  margin: 0 auto;
+}
+
+.btn-update:hover {
+  background-color: #e0e7ff;
+}
+
+.btn-update svg {
+  stroke-width: 2.5;
+}
+
+/* Layout de dos columnas */
+.two-column-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+/* HeatMap */
+.heatmap-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.heatmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heatmap-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.btn-update-heatmap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #dbeafe;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1e40af;
+  transition: background-color 0.2s;
+}
+
+.btn-update-heatmap:hover {
+  background-color: #bfdbfe;
+}
+
+.btn-update-heatmap svg {
+  width: 16px;
+  height: 16px;
+}
+
+.heatmap-controls {
+  margin-bottom: 20px;
+}
+
+.time-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.tab-btn.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.heatmap-grid {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.heatmap-y-axis {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 11px;
+  color: #6b7280;
+  padding-top: 2px;
+}
+
+.heatmap-y-axis span {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.heatmap-cells {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heatmap-row {
+  display: flex;
+  gap: 4px;
+}
+
+.cell {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  transition: transform 0.2s;
+}
+
+.cell:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.cell.level-1 { background-color: #fef3c7; }
+.cell.level-2 { background-color: #fde68a; }
+.cell.level-3 { background-color: #fcd34d; }
+.cell.level-4 { background-color: #fbbf24; }
+.cell.level-5 { background-color: #f59e0b; }
+.cell.level-6 { background-color: #f97316; }
+.cell.level-7 { background-color: #ea580c; }
+
+.heatmap-x-axis {
+  display: flex;
+  justify-content: space-around;
+  font-size: 11px;
+  color: #6b7280;
+  margin-left: 30px;
+}
+
+/* Tabla productos ABC */
+.products-table-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+}
+
+.products-table-section h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #f3f4f6;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.products-table thead {
+  background-color: #f9fafb;
+}
+
+.products-table th,
+.products-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #e5e7eb;
+  font-size: 13px;
+}
+
+.products-table th {
+  font-weight: 600;
+  color: #374151;
+}
+
+.products-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.btn-update-table {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #dbeafe;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e40af;
+  transition: background-color 0.2s;
+  margin: 15px auto 10px;
+}
+
+.btn-update-table:hover {
+  background-color: #bfdbfe;
+}
+
+.btn-update-table svg {
+  width: 18px;
+  height: 18px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pagination button {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pagination button:hover {
+  background-color: #e0e7ff;
+}
+
+/* Código de Barras */
+.barcode-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  margin-bottom: 30px;
+}
+
+.barcode-section h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #f3f4f6;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.barcode-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+.barcode {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+footer img.logo-large {
+  max-width: 140px;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+/* Responsivo */
+@media (max-width: 850px) {
+  .menu-icon {
+    display: block;
+  }
+  
+  nav.main-nav {
+    display: none;
+  }
+
+  nav.nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    background-color: white;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 9999;
+    padding: 5px 0;
+  }
+  
+  nav.nav-dropdown.show {
+    display: flex;
+  }
+
+  .two-column-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .bar-label {
+    min-width: 120px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .bar-label {
+    min-width: 100px;
+    font-size: 11px;
+  }
+
+  .time-tabs {
+    font-size: 11px;
+  }
+
+  .cell {
+    width: 16px;
+    height: 16px;
+  }
+}
