@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    padding: 15px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.header h1 {
+    font-size: clamp(28px, 8vw, 48px);
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.volver {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #333;
+    font-size: clamp(14px, 3vw, 18px);
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.volver:hover {
+    opacity: 0.7;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.section-title {
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.email-input {
+    width: 100%;
+    padding: clamp(12px, 3vw, 18px);
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    margin-bottom: 30px;
+    color: #999;
+    transition: border-color 0.3s;
+}
+
+.email-input::placeholder {
+    color: #ccc;
+}
+
+.email-input:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.items-list {
+    margin-bottom: 30px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(12px, 2vw, 15px) 0;
+    border-bottom: 1px solid #eee;
+    font-size: clamp(13px, 2vw, 15px);
+    color: #666;
+    gap: 15px;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-name {
+    color: #333;
+    font-weight: 500;
+    flex: 1;
+}
+
+.item-price {
+    color: #333;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.total-section {
+    display: flex;
+    justify-content: space-between;
+    padding: clamp(15px, 3vw, 20px) 0;
+    border-top: 2px solid #333;
+    margin-bottom: 30px;
+    gap: 15px;
+}
+
+.total-label {
+    font-size: clamp(16px, 3vw, 18px);
+    font-weight: 600;
+}
+
+.total-price {
+    font-size: clamp(16px, 3vw, 18px);
+    font-weight: 700;
+}
+
+.pedido-btn {
+    width: 100%;
+    padding: clamp(14px, 3vw, 16px);
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(15px, 2.5vw, 18px);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+.pedido-btn:hover {
+    background-color: #0052a3;
+}
+
+.pedido-btn:active {
+    transform: scale(0.98);
+}
+
+.bottom-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    flex: 1;
+    min-width: 140px;
+    padding: clamp(12px, 2.5vw, 14px) clamp(16px, 3vw, 24px);
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(13px, 2.5vw, 16px);
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #0066cc;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background-color: #0052a3;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: clamp(15px, 3vw, 24px);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
+    margin: 0 auto 15px;
+    background-color: white;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.product-name {
+    font-size: clamp(14px, 2.5vw, 16px);
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive para tablets y dispositivos medianos */
+@media (max-width: 1024px) {
+    .container {
+        padding: clamp(20px, 5vw, 30px);
+    }
+
+    .main-content {
+        gap: 30px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+}
+
+/* Responsive para tablets pequeños y móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        gap: 15px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+        width: 100%;
+    }
+
+    .volver {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .email-input {
+        margin-bottom: 25px;
+    }
+
+    .bottom-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* Responsive para móviles pequeños */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    .main-content {
+        gap: 25px;
+    }
+
+    .email-input {
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .item {
+        padding: 10px 0;
+        font-size: 13px;
+    }
+
+    .total-section {
+        padding: 15px 0;
+        margin-bottom: 20px;
+    }
+
+    .pedido-btn {
+        margin-bottom: 20px;
+        padding: 12px;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .bottom-buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 12px;
+        font-size: 13px;
+    }
+}
+
+/* Ultra responsive para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .volver span:last-child {
+        display: none;
+    }
+
+    .btn span:nth-child(2) {
+        display: none;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
