@@ -50,7 +50,7 @@ header {
 
 /* Logo pequeño */
 .logo-small {
-  height: 30px;
+  height: 79px;
   width: auto;
   object-fit: contain;
   vertical-align: middle;
@@ -63,6 +63,28 @@ header {
   align-items: center;
   flex-wrap: nowrap;
   flex: 1 1 auto;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-link:active {
+    opacity: 0.6;
+}
+
+.logo-link span {
+    display: flex;
+    align-items: center;
 }
 
 /* Navegación */

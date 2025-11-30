@@ -14,15 +14,16 @@
 
   <!-- Enlace al archivo CSS -->
   <link rel="stylesheet" href="../CSS/PlastManic Producto Catalogo.css">
-  
+
 </head>
 <body>
   <div class="main-container">
-    <!-- Header -->
     <header class="header">
       <div class="header-left">
-        <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic Logo" class="logo">
-        <h1 class="brand-name">PlastManic</h1>
+     <a href="inicio.html" aria-label="Ver detalles de PlastManic">
+    <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic Logo" class="logo"> 
+   </a>
+  <h1 class="brand-name">PlastManic</h1>
       </div>
       
       <div class="header-right">
@@ -30,8 +31,6 @@
         
         <nav class="nav-menu" role="navigation">
           <a href="PlastManic Producto Catalogo.html" class="nav-item active" role="menuitem">Productos</a>
-          <a href="#" class="nav-item" role="menuitem">Beneficios</a>
-          <a href="#" class="nav-item" role="menuitem">Acerca de</a>
         </nav>
         
         <div class="search-header">
@@ -43,7 +42,7 @@
           <img src="../assets/images/img_solar_cart_linear.svg" alt="Carrito" class="cart-icon">
         </a>
         
-        <a href="#" class="help-button">¿Necesitas ayuda?</a>
+        <a href="PastManicLoginUsuario.html" class="help-button">Iniciar Sesión</a>
       </div>
     </header>
 
@@ -110,7 +109,9 @@
             <article class="product-card">
               <div class="product-image-container">
                 <div class="discount-badge">20%</div>
-                <img src="../assets/images/img_image_27.png" alt="Leche Gloria" class="product-image">
+                <a href="PlastManic Detalle producto 1 .html" aria-label="Ver detalles de Leche Gloria">
+                  <img src="../assets/images/img_image_27.png" alt="Leche Gloria" class="product-image">
+                </a>
               </div>
               <div class="product-info">
                 <h3 class="product-name">Leche Gloria</h3>
@@ -120,17 +121,19 @@
             </article>
 
             <!-- Product 2 -->
-            <article class="product-card">
-              <div class="product-image-container">
-                <div class="discount-badge">30%</div>
-                <img src="../assets/images/img_image_23.png" alt="Shake de Gloria" class="product-image">
-              </div>
-              <div class="product-info">
-                <h3 class="product-name">Shake de Gloria</h3>
-                <p class="product-category">+Lacteos</p>
-                <p class="product-price">S/ 6.5</p>
-              </div>
-            </article>
+           <article class="product-card">
+             <div class="product-image-container">
+             <div class="discount-badge">30%</div>
+             <a href="PlastManic Detalle producto 3.html" aria-label="Ver detalles de Shake de Gloria">
+             <img src="../assets/images/img_image_23.png" alt="Shake de Gloria" class="product-image">
+             </a>
+             </div>
+             <div class="product-info">
+               <h3 class="product-name">Shake de Gloria</h3>
+               <p class="product-category">+Lacteos</p>
+             <p class="product-price">S/ 6.5</p>
+             </div>
+             </article>
 
             <!-- Product 3 -->
             <article class="product-card">
@@ -175,7 +178,9 @@
             <article class="product-card">
               <div class="product-image-container">
                 <div class="discount-badge">30%</div>
+                <a href="PlastManic Detalle producto 2.html" aria-label="Ver detalles de Alpeña Manjar Blanco">
                 <img src="../assets/images/img_image_37.png" alt="Alpeña Manjar Blanco" class="product-image">
+                </a>
               </div>
               <div class="product-info">
                 <h3 class="product-name">Alpeña Manjar Blanco</h3>
@@ -197,7 +202,7 @@
         </main>
       </div>
 
-      <!-- Footer -->
+
       <footer class="footer">
         <p class="payment-text">Medios de pago</p>
         <img src="../assets/images/img_image_16.png" alt="Métodos de pago disponibles" class="payment-methods">
@@ -205,32 +210,8 @@
     </div>
   </div>
 
-  <script>
-    // Mobile menu toggle
-    document.querySelector('.hamburger').addEventListener('click', function() {
-      const navMenu = document.querySelector('.nav-menu');
-      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
 
-    // Filter interactions
-    document.querySelectorAll('.filter-option').forEach(option => {
-      option.addEventListener('click', function() {
-        document.querySelectorAll('.filter-option').forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-
-    // Product card hover effects
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-4px)';
-        this.style.transition = 'transform 0.3s ease';
-      });
-      
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-      });
-    });
-  </script>
 </body>
+ <script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
+   <script src="/JavaScript/PlastManic Producto Catalogo.js"></script>
 </html>

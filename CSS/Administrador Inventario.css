@@ -43,13 +43,31 @@ header{
     align-items:center;
     gap:20px;
 }
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-link:active {
+    opacity: 0.6;
+}
+
 .dropdown-menu{ width:82px; height:46px; }
 .dropdown-button{
     width:100%; height:100%;
     background:#fff; border:1px solid var(--border-grey);
     border-radius:4px; cursor:pointer; display:flex; align-items:center; justify-content:center;
 }
-.logo{ width:48px; height:48px; border-radius:50%; object-fit:cover; }
+.logo{width: 70px;height: 67px;border-radius:50%;object-fit:cover;}
 .brand-name{ font-size:18px; color:#111; }
 nav{ display:flex; gap:10px; align-items:center; font-size:14px; }
 nav a{ color:#111; text-decoration:none; }
@@ -63,41 +81,38 @@ nav .separator{ color:#111; }
     margin:24px 0 20px;
 }
 
-/* =========================================================
-   TOOLBAR: Filtros | Lista + Búsqueda (alineados horizontalmente)
-   ========================================================= */
 .inventory-toolbar{
     display:flex;
-    align-items:center;           /* misma línea y misma altura */
-    justify-content:space-between;/* deja el bloque de filtros totalmente a la derecha */
-    gap:0;                        /* el espaciado lo controla el divisor */
+    align-items:center;           
+    justify-content:space-between;
+    gap:0;                      
     margin:8px 0 12px;
-    flex-wrap:nowrap;             /* evita salto a segunda línea */
+    flex-wrap:nowrap;           
     min-height:44px;
 }
 
-/* Barra de búsqueda (izquierda) */
+
 .search-shell{
     display:flex;
     align-items:center;
     gap:12px;
-    height:44px;                  /* altura compacta como en la imagen */
+    height:44px;                  
     background:#d6d4da;
     border:2px solid #2a1e1e;
     border-radius:8px;
     padding:0 10px;
-    flex: 1 1 68%;                /* ocupa la mayor parte, pero no todo */
+    flex: 1 1 68%;                
     min-width:520px;
-    max-width:920px;              /* límite para que no invada los filtros */
+    max-width:920px;              
 }
 
-/* Divisor entre búsqueda y filtros (fino y alto) */
+
 .toolbar-divider{
     width:1.5px;
     height:28px;
     background:#1b1717;
     opacity:.4;
-    margin:0 16px;                /* espacio antes y después del divisor */
+    margin:0 16px;                
     align-self:center;
 }
 
@@ -140,14 +155,14 @@ nav .separator{ color:#111; }
     background: transparent;
 }
 
-/* --- Sección Filtros | Lista (derecha) --- */
+
 .filters-section{
     display:flex;
     align-items:center;
     gap:16px;
-    height:44px;                  /* igual que la barra */
+    height:44px;                 
     padding:0 4px;
-    margin-left:0;                /* ya no usamos auto; lo alinea space-between */
+    margin-left:0;                
     background:transparent;
     border:0;
 }
@@ -163,7 +178,7 @@ nav .separator{ color:#111; }
     width:18px; 
     height:18px; 
     object-fit:contain;
-    filter:brightness(0) saturate(100%); /* negro */
+    filter:brightness(0) saturate(100%); 
 }
 .filter-item span{
     font-family:"Poppins",sans-serif;
@@ -180,7 +195,7 @@ nav .separator{ color:#111; }
     align-self: center;
 }
 
-/* Botones cuadrados de la derecha (X y Lupa) */
+
 .square-icon {
     width: 38px;
     height: 38px;
@@ -215,9 +230,7 @@ nav .separator{ color:#111; }
     background: #f3f3f5;
 }
 
-/* =========================================================
-   SELECTOR DE MES + TABLA
-   ========================================================= */
+
 .month-selector{
     display:flex; align-items:center; gap:10px; width:fit-content;
     border:2px solid #000; padding:8px 12px; background:#fff; margin:10px 0 18px;
@@ -241,23 +254,18 @@ nav .separator{ color:#111; }
 .orders-table.dense td{ font-size:12px; }
 .orders-table tbody tr:nth-child(even){ background:#fafafa; }
 
-/* =========================================================
-   PIE: BOTÓN + PAGINACIÓN (centrados)
-   ========================================================= */
-/* =========================================================
-   PIE: BOTÓN + PAGINACIÓN (perfectamente alineados)
-   ========================================================= */
+
 .table-footer {
     display: flex;
-    justify-content: center;     /* centra horizontalmente todo el grupo */
-    align-items: center;         /* alinea ambos verticalmente */
-    gap: 30px;                   /* espacio entre el botón y la paginación */
+    justify-content: center;     
+    align-items: center;       
+    gap: 30px;                  
     width: 100%;
     margin: 25px 0 10px;
-    min-height: 60px;            /* asegura una altura uniforme */
+    min-height: 60px;           
 }
 
-/* Botón ACTUALIZAR TABLA */
+
 .btn-update {
     display: inline-flex;
     align-items: center;
@@ -276,7 +284,7 @@ nav .separator{ color:#111; }
     transition: all 0.3s ease;
     box-sizing: border-box;
     line-height: 1;
-    vertical-align: middle;       /* mejora la alineación óptica */
+    vertical-align: middle;       
 }
 
 .btn-update img {
@@ -296,7 +304,7 @@ nav .separator{ color:#111; }
     align-items: center;
     justify-content: center;
     gap: 8px;
-    height: 42px;                 /* misma altura que el botón */
+    height: 42px;                
 }
 
 .page-number,
@@ -331,7 +339,7 @@ footer{ background:var(--bg-light-blue); padding:40px 0; text-align:center; marg
     .page-title{ font-size:42px; }
     .month-selector .month-text{ font-size:26px; }
 
-    /* En móviles la barra sí puede usar todo el ancho */
+  
     .search-shell{
         min-width:0;
         width:100%;

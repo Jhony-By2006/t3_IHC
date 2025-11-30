@@ -13,35 +13,39 @@
   <meta property="og:description" content="Compra Leche Gloria con quinua, kiwicha y cañihua en PlastManic. Precio especial S/4.50 con 20% descuento.">
 
   <!-- Enlace al archivo CSS -->
-  <link rel="stylesheet" href="../CSS/PlastManic Detalle producto.css">
+  <link rel="stylesheet" href="../CSS/PlastManic Detalle producto 1.css">
   
-  <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fpastmanic3746back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.9"></script>
-  <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.1"></script>
 </head>
 <body>
   <div class="main-container">
     <!-- Header -->
-    <header class="header-container">
-      <div class="logo-section">
-        <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic Logo" class="logo-image">
-        <span class="logo-text">PlastManic</span>
-      </div>
-      
-      <nav class="nav-section">
-        <div class="nav-menu">
-          <a href="#" class="nav-item">Productos</a>
-          <a href="#" class="nav-item active">Beneficios</a>
-          <a href="#" class="nav-item">Acerca de</a>
-        </div>
-        
-        <div class="search-container">
-          <input type="search" class="search-input" placeholder="Buscar productos...">
-          <img src="../assets/images/img_vector.svg" alt="Search" class="search-icon">
-          <img src="../assets/images/img_solar_cart_linear.svg" alt="Cart" class="cart-icon">
-        </div>
-        
-        <button class="help-button">¿Necesitas ayuda?</button>
-      </nav>
+   <header class="header-container">
+  <div class="logo-section">
+    <a href="inicio.html" aria-label="Ir a inicio - PlastManic" class="logo-link">
+      <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic Logo" class="logo-image">
+      <span class="logo-text">PlastManic</span>
+    </a>
+  </div>
+  
+  <nav class="nav-section">
+    <div class="nav-menu">
+      <a href="../paginas/PlastManic Producto Catalogo.html" class="nav-item">Productos</a>
+      <a href="#" class="nav-item active">Detalles</a>
+
+    </div>
+    
+    <div class="search-container">
+      <input type="search" class="search-input" placeholder="Buscar productos...">
+      <img src="../assets/images/img_vector.svg" alt="Search" class="search-icon">
+    </div>
+    
+    <a href="carrito.html" aria-label="Carrito de compras">
+      <img src="../assets/images/img_solar_cart_linear.svg" alt="Carrito" class="cart-icon">
+    </a>
+    
+    <button class="help-button">Iniciar Sesión</button>
+  </nav>
+
       
       <div class="mobile-menu">
         <div class="hamburger">
@@ -174,27 +178,31 @@
         
         <div class="products-grid">
           <div class="product-card">
-            <img src="../assets/images/img_image_19.png" alt="Aceito Primor 900ml" class="product-card-image">
-            <h3 class="product-card-title">Aceito Primor 900ml</h3>
-            <p class="product-card-price">S/ 12.00</p>
+            <a href="PlastManic Detalle producto 2.html" aria-label="Ver Alpeña Manjar Blanco">
+            <img src="../assets/images/img_image_37.png" alt="Alpeña Manjar Blanco" class="product-card-image">
+            </a>
+            <h3 class="product-card-title">Alpeña Manjar Blanco</h3>
+            <p class="product-card-price">S/ 7.00</p>
           </div>
           
           <div class="product-card">
-            <img src="../assets/images/img_image_40.png" alt="Gin'Ga" class="product-card-image">
-            <h3 class="product-card-title">Gin'Ga</h3>
-            <p class="product-card-price">S/ 29.99</p>
+            <img src="../assets/images/img_image_36.png" alt="Mantequilla Gloria" class="product-card-image">
+            <h3 class="product-card-title">Mantequilla Gloria</h3>
+            <p class="product-card-price">S/ 5.00</p>
           </div>
           
           <div class="product-card">
-            <img src="../assets/images/img_image_41.png" alt="Pinga Pura" class="product-card-image">
-            <h3 class="product-card-title">Pinga Pura</h3>
-            <p class="product-card-price">S/ 19.99</p>
+            <a href="PlastManic Detalle producto 3.html" aria-label="Snake de Gloria">
+            <img src="../assets/images/img_image_23.png" alt="Snake de Gloria" class="product-card-image">
+            </a>
+            <h3 class="product-card-title">Snake de Gloria</h3>
+            <p class="product-card-price">S/ 6.50</p>
           </div>
           
           <div class="product-card">
-            <img src="../assets/images/img_image_42.png" alt="Alchol en Gel" class="product-card-image">
-            <h3 class="product-card-title">Alchol en Gel</h3>
-            <p class="product-card-price">S/ 9.99</p>
+            <img src="../assets/images/img_image_24.png" alt="Queso Fresco" class="product-card-image">
+            <h3 class="product-card-title">Queso Fresco</h3>
+            <p class="product-card-price">S/ 10.50</p>
           </div>
         </div>
       </section>
@@ -205,46 +213,7 @@
       <p class="footer-text">Copyright © 2022 FASCO . All Rights Reserved.</p>
     </footer>
   </div>
-
-  <script>
-    let quantity = 1;
-
-    function increaseQuantity() {
-      quantity++;
-      document.getElementById('quantity').textContent = quantity;
-    }
-
-    function decreaseQuantity() {
-      if (quantity > 1) {
-        quantity--;
-        document.getElementById('quantity').textContent = quantity;
-      }
-    }
-
-    // Mobile menu toggle
-    document.querySelector('.hamburger').addEventListener('click', function() {
-      const navSection = document.querySelector('.nav-section');
-      if (navSection.style.display === 'flex') {
-        navSection.style.display = 'none';
-      } else {
-        navSection.style.display = 'flex';
-        navSection.style.flexDirection = 'column';
-        navSection.style.position = 'absolute';
-        navSection.style.top = '100%';
-        navSection.style.left = '0';
-        navSection.style.width = '100%';
-        navSection.style.backgroundColor = '#ffffff';
-        navSection.style.padding = '16px';
-        navSection.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-      }
-    });
-
-    // Add to cart functionality
-    document.querySelector('.add-to-cart-btn').addEventListener('click', function() {
-      alert(`Agregado al carrito: ${quantity} unidad(es) de Leche Gloria`);
-    });
-  </script>
 </body>
 <script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
-
+<script src="../JavaScript/PlastManic Detalle producto 1.js"></script>
 </html>

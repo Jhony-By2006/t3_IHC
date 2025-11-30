@@ -338,7 +338,7 @@ body {
     }
 }
 
-/* Ultra responsive para pantallas muy pequeñas */
+
 @media (max-width: 360px) {
     .header h1 {
         font-size: 24px;
@@ -356,4 +356,60 @@ body {
         font-size: 12px;
         padding: 10px;
     }
+}
+
+.arrow {
+    font-size: 24px;
+    transform: rotate(-90deg);
+}
+.volver-text {
+    font-weight: 500;
+}
+
+@media (max-width: 968px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav {
+        display: none;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+
+    .volver-link {
+        font-size: 16px;
+    }
+    .arrow {
+        font-size: 20px;
+    }
+
+.pedido-btn {
+    width: 100%;
+    padding: clamp(14px, 3vw, 16px);
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(15px, 2.5vw, 18px);
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.pedido-btn:hover {
+    background-color: #0052a3;
+}
+
+.pedido-btn:active {
+    transform: scale(0.98);
+}
+
+
 }

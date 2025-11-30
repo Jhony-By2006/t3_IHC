@@ -83,6 +83,108 @@ header {
     color: black;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+.logo-link:active {
+    opacity: 0.6;
+}
+
+.dropdown-menu {
+    position: relative;
+    width: 82px;
+    height: 46px;
+}
+
+.dropdown-button {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 1px solid var(--border-grey);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-button:hover {
+    background-color: #f0f0f0;
+    border-color: var(--primary-blue);
+}
+
+.dropdown-button:active {
+    transform: scale(0.95);
+}
+
+/* Contenido del menú desplegable */
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid var(--border-grey);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    margin-top: 8px;
+    padding: 8px 0;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.dropdown-content.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-black);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-item:hover {
+    background-color: #f2f5ff;
+    border-left-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.dropdown-item:active {
+    background-color: #e0e7ff;
+}
+
+.dropdown-item span {
+    font-size: 18px;
+}
+
+
 nav {
     display: flex;
     gap: 10px;

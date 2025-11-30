@@ -12,7 +12,7 @@ html_app/
 ├── pages/              # Additional HTML pages
 ├── index.html          # Main HTML entry point
 └── assets/             # Images, fonts, and other static assets
-
+└── JavaScript/             # JAVA SCRIPT
 ```
 
 ## 🎨 Styling

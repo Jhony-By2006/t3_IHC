@@ -57,9 +57,26 @@ input {
 }
 
 .logo-image {
-  width: 52px;
-  height: 50px;
+  width: 78px;
+  height: 78px;
   border-radius: 50px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-link:active {
+  opacity: 0.6;
 }
 
 .logo-text {
@@ -548,7 +565,7 @@ button:focus {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 63%;
   }
 
   .mobile-menu {
@@ -607,8 +624,8 @@ button:focus {
   }
 
   .cart-icon {
-    width: 24px;
-    height: 24px;
+    width: 27px;
+    height: 28px;
   }
 
   .help-button {
@@ -654,7 +671,7 @@ button:focus {
 
 @media (min-width: 1024px) {
   .header-container {
-    padding: 14px 120px;
+    padding: 14px 143px;
     margin-right: 62px;
     margin-left: 120px;
   }

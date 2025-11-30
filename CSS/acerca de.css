@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    min-height: 100vh;
+}
+
+/* Header y botón volver */
+.header {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.volver-btn {
+    color: #666;
+    text-decoration: none;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+.volver-btn:hover {
+    color: #2d7a5e;
+}
+
+/* Logo */
+.logo-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 161px;
+    height: 139px;
+    object-fit: contain;
+}
+
+/* Título */
+.titulo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+}
+
+/* Sección de información */
+.info-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item strong {
+    color: #2d7a5e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Sección de horario */
+.horario-section {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.horario-icon {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    width: 60px;
+}
+
+.horario-icon .icon {
+    width: 87px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.horario-content h2 {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.horario-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Sección de ayuda */
+.ayuda-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.ayuda-icon {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    width: 60px;
+}
+
+.ayuda-icon .icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.ayuda-content h2 {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.ayuda-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .titulo {
+        font-size: 28px;
+    }
+
+    .info-section {
+        padding: 15px;
+    }
+
+    .info-item {
+        font-size: 14px;
+    }
+
+    .horario-content h2,
+    .ayuda-content h2 {
+        font-size: 16px;
+    }
+
+    .horario-content p,
+    .ayuda-content p {
+        font-size: 13px;
+    }
+}

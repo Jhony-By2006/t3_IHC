@@ -64,13 +64,13 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 32px;
-  margin-bottom: 26px;
+  gap: 26px;
+  margin-bottom: -9px;
 }
 
 .nav-menu {
   display: none;
-  gap: 84px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -202,7 +202,7 @@ img {
 }
 
 .filter-section {
-  margin: 52px 18px 0 6px;
+  margin: 5px 18px 0 6px;
 }
 
 .filter-title {
@@ -234,8 +234,8 @@ img {
   align-items: center;
   border: 2px solid #1b234a;
   background-color: #ffffff;
-  margin: 0 18px 0 10px;
-  padding: 8px;
+  margin: 6px 61px 0 12px;
+  padding: 1px;
 }
 
 .range-button {
@@ -259,7 +259,7 @@ img {
 }
 
 .breadcrumb-item {
-  font-size: 13px;
+  font-size: 19px;
   font-family: Poppins;
   font-weight: 400;
   line-height: 20px;
@@ -387,7 +387,7 @@ img {
   align-items: flex-start;
   width: 100%;
   background-color: #f2f5ff;
-  padding: 12px 76px;
+  padding: 15px 95px;
 }
 
 .payment-text {
@@ -401,7 +401,7 @@ img {
 .payment-methods {
   width: 372px;
   height: 76px;
-  margin: 8px 480px 16px 0;
+  margin: 11px 300px 16px 0;
 }
 
 /* Interactive states */

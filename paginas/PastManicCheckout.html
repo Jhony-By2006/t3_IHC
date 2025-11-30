@@ -4,28 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CheckOut - PastManic</title>
-    <link rel="stylesheet" href="../CSS/PastManicMockups.css">
+    <link rel="stylesheet" href="../CSS/PastManicCheckout.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <button class="menu-btn">☰</button>
             <div class="logo">
-                <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic" class="logo-img">
-                <span class="logo-text">PastManic</span>
-            </div>
-            <nav class="nav">
-                <a href="PlastManic Producto Catalogo.html" class="nav-item active" role="menuitem">Productos</a>
-                <a href="PastManicCheckout.html" class="nav-item active" role="menuitem" >CheckOut</a>
-                <a href="#" class="nav-item active" role="menuitem" >Acerca de</a>
-            </nav>
-            <div class="header-actions">
-                <div class="search-box">
-                    <input type="search" placeholder="Buscar...">
-                    <button>🔍</button>
-                </div>
-               <a href="carrito.html" aria-label="Carrito de compras"> <button class="cart-btn">🛒</button></a> 
-                <button class="help-btn">¿Necesitas ayuda?</button>
+                <a href="inicio.html" aria-label="Ir a inicio - PastManic" class="logo-link">
+                    <img src="../assets/images/img_c1f9ca21_fb0b_4.png" alt="PlastManic" class="logo-img">
+                    <span class="logo-text">PlastManic</span>
+                </a>
             </div>
         </div>
     </header>
@@ -84,37 +72,63 @@
                     <label for="save-payment">Save This Info For Future</label>
                 </div>
 
-                <button class="submit-btn">Pagar ahora</button>
+                <button class="submit-btn" id="payBtn">Pagar ahora</button>
             </section>
 
+        
             <aside class="order-summary">
-                <div class="product-item">
-                    <div class="product-badge">1</div>
-                    <img src="../assets/images/img_image_40.png" alt="Gin Ga" class="product-img">
-                    <div class="product-info">
-                        <h3>Gin´Ga</h3>
-                        <p>Gin Ga</p>
-                        <span class="product-price">S/ 29.99</span>
+                <h3>Productos</h3>
+                
+                <div class="products-list">
+                    <div class="product-item">
+                        <img src="../assets/images/img_image_27.png" alt="Leche Gloria" class="product-img">
+                        <div class="product-info">
+                            <h4>Leche Gloria</h4>
+                            <span class="product-price" data-price="4.50">S/4.50</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="../assets/images/img_image_23.png" alt="Snake de Gloria" class="product-img">
+                        <div class="product-info">
+                            <h4>Snake de Gloria</h4>
+                            <span class="product-price" data-price="6.50">S/6.50</span>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="../assets/images/img_image_37.png" alt="Alpeña Manjar Blanco" class="product-img">
+                        <div class="product-info">
+                            <h4>Alpeña Manjar Blanco</h4>
+                            <span class="product-price" data-price="7.00">S/7.00</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="promo-code">
-                    <input type="text" placeholder="Codigo de producto: _____" class="promo-input">
-                    <button class="apply-btn">Apply</button>
+                <div class="promo-section">
+                    <input type="text" placeholder="Codigo de descuento (opcional)" class="promo-input" id="promoInput">
+                    <button class="apply-btn" id="applyPromoBtn">Aplicar</button>
                 </div>
 
-                <div class="order-line">
-                    <span>Gin´Ga</span>
-                    <span>S/ 29.99</span>
-                </div>
+                <div id="discountMessage" class="discount-message"></div>
 
                 <div class="order-total">
-                    <strong>Total</strong>
-                    <strong>S/ 29.99</strong>
+                    <span>Total</span>
+                    <span id="totalPrice">S/18.00</span>
                 </div>
             </aside>
         </div>
     </main>
+
+    <!-- Modal de confirmación -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="checkmark">✓</div>
+            <h2>¡Confirmación Exitosa!</h2>
+            <p>Tu pago ha sido procesado correctamente. Gracias por tu compra.</p>
+            <button class="modal-btn" id="closeModalBtn">Aceptar</button>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-container">
@@ -130,8 +144,8 @@
             <div class="footer-section">
                 <h3>Sitio</h3>
                 <ul>
-                    <li><a href="#">Acerca de</a></li>
-                    <li><a href="#">Contactenos</a></li>
+                    <li><a href="acerca de.html">Acerca de</a></li>
+                    <li><a href="contactenos.html">Contactenos</a></li>
                     <li><a href="#">Consultas, quejas o reclamos</a></li>
                 </ul>
             </div>
@@ -149,6 +163,8 @@
             <p>Copyright © 2022 FASCO . All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script src="../JavaScript/PastManicCheckout.js"></script>
+     <script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
 </body>
-<script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
 </html>

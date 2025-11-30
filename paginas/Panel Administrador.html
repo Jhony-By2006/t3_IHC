@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Administrador - Dashboard | PastManic</title>
         <link rel="stylesheet" href="../CSS/Panel Administrador.css" />
+        
     </head>
     <body>
         <header>
@@ -12,20 +13,29 @@
                 <div class="header-content">
                     <div class="logo-section">
                         <div class="dropdown-menu">
-                            <button class="dropdown-button">
+                            <button class="dropdown-button" id="dropdownToggle" aria-label="Menú de opciones">
                                 <span>☰</span>
                             </button>
+                            <!-- Menú desplegable -->
+                            <div class="dropdown-content" id="dropdownContent">
+                                <a href="inicio.html" class="dropdown-item">
+                                    <span></span>
+                                    Cerrar sesión
+                                </a>
+                            </div>
                         </div>
-                        <img src="../assets/images/logo.png" alt="PastManic Logo" class="logo" />
-                        <span class="brand-name">PastManic</span>
+                        <a href="#" aria-label="Ir a inicio - PastManic" class="logo-link">
+                            <img src="../assets/images/logo.png" alt="PastManic Logo" class="logo" />
+                            <span class="brand-name">PastManic</span>
+                        </a>
                     </div>
                     <nav>
                         <a href="Administrador Inventario.html">Inventario</a>
-                        <span class="separator">|</span>
+                        <span class="separator"></span>
                         <a href="AdministradorProveedor.html">Proveedores</a>
-                        <span class="separator">|</span>
+                        <span class="separator"></span>
                         <a href="Administradorcliente.html">Clientes</a>
-                        <span class="separator">|</span>
+                        <span class="separator"></span>
                         <a href="AdministradorReportes.html">Reportes</a>
                     </nav>
                 </div>
@@ -87,51 +97,46 @@
                     </div>
 
                     <div class="table-container">
-                    <section class="orders-section">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Artículo</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio /unidad</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <tr>
+                                    <td>16526</td>
+                                    <td>Producto A</td>
+                                    <td>15</td>
+                                    <td>10,00 €</td>
+                                    <td>150,00 €</td>
+                                </tr>
+                                <tr>
+                                    <td>40555</td>
+                                    <td>Producto B</td>
+                                    <td>10</td>
+                                    <td>5,00 €</td>
+                                    <td>50,00 €</td>
+                                </tr>
+                                <tr>
+                                    <td>20900</td>
+                                    <td>Producto C</td>
+                                    <td>3</td>
+                                    <td>25,00 €</td>
+                                    <td>75,00 €</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-    <div class="table-container">
-        <table class="orders-table">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Artículo</th>
-                    <th>Cantidad</th>
-                    <th>Precio /unidad</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="ordersTableBody">
-                <tr>
-                    <td>16526</td>
-                    <td>Producto A</td>
-                    <td>15</td>
-                    <td>10,00 €</td>
-                    <td>150,00 €</td>
-                </tr>
-                <tr>
-                    <td>40555</td>
-                    <td>Producto B</td>
-                    <td>10</td>
-                    <td>5,00 €</td>
-                    <td>50,00 €</td>
-                </tr>
-                <tr>
-                    <td>20900</td>
-                    <td>Producto C</td>
-                    <td>3</td>
-                    <td>25,00 €</td>
-                    <td>75,00 €</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <button class="btn-update">
-        ACTUALIZAR TABLA
-        <img src="../assets/images/icono_actualizar.png" alt="Actualizar">
-    </button>
-</section>
-
+                    <button class="btn-update">
+                        ACTUALIZAR TABLA
+                        <img src="../assets/images/icono_actualizar.png" alt="Actualizar">
+                    </button>
                 </section>
             </div>
         </main>
@@ -144,6 +149,8 @@
                 </div>
             </div>
         </footer>
+
     </body>
     <script src="https://cdn.userway.org/widget.js" data-account="s2k5qqP9pX"></script>
+    <script src="../JavaScript/Panel Administrador.js"></script>
 </html>
