@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Validación - Prototipo E-commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #A7F3D0 0%, #16A34A 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(22, 163, 74, 0.15);
+            margin-bottom: 35px;
+            text-align: center;
+            border-top: 5px solid #16A34A;
+        }
+
+        .header h1 {
+            color: #1F2937;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6B7280;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #16A34A;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.2);
+        }
+
+        .metric-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .metric-icon {
+            font-size: 32px;
+        }
+
+        .metric-trend {
+            background: #A7F3D0;
+            color: #16A34A;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .metric-title {
+            color: #6B7280;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .metric-value {
+            color: #1F2937;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .metric-description {
+            color: #9CA3AF;
+            font-size: 13px;
+        }
+
+        .analysis-section {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 35px;
+        }
+
+        .analysis-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .analysis-header h2 {
+            color: #1F2937;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .analysis-header p {
+            color: #6B7280;
+            font-size: 15px;
+        }
+
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .chart-container {
+            text-align: center;
+        }
+
+        .chart-title {
+            color: #1F2937;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .progress-ring {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 20px;
+        }
+
+        .progress-ring svg {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring circle {
+            fill: none;
+            stroke-width: 14;
+        }
+
+        .ring-bg {
+            stroke: #F3F4F6;
+        }
+
+        .ring-progress {
+            stroke: #16A34A;
+            stroke-linecap: round;
+            stroke-dasharray: 502;
+            stroke-dashoffset: 502;
+            animation: fillRing 2s ease-out forwards;
+        }
+
+        @keyframes fillRing {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .progress-ring .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .progress-ring .percentage {
+            display: block;
+            font-size: 42px;
+            font-weight: 700;
+            color: #16A34A;
+            line-height: 1;
+        }
+
+        .progress-ring .label {
+            display: block;
+            font-size: 14px;
+            color: #6B7280;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4B5563;
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+        }
+
+        .question-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 25px;
+            transition: transform 0.2s ease;
+        }
+
+        .question-card:hover {
+            transform: translateX(5px);
+        }
+
+        .question-number {
+            display: inline-block;
+            background: #16A34A;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 17px;
+            color: #1F2937;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            padding: 15px 20px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            border-color: #A7F3D0;
+            background: #F0FDF4;
+        }
+
+        .option.selected {
+            background: #16A34A;
+            border-color: #16A34A;
+            color: white;
+            font-weight: 600;
+        }
+
+        .option::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D1D5DB;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .option.selected::before {
+            background: white;
+            border-color: white;
+            box-shadow: inset 0 0 0 4px #16A34A;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .status-badge.positive {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .status-badge.warning {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        .footer {
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 35px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #16A34A;
+        }
+
+        .footer h2 {
+            color: #16A34A;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .footer p {
+            color: #4B5563;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .footer .highlight {
+            color: #16A34A;
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-ring {
+                width: 200px;
+                height: 200px;
+            }
+
+            .question-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Dashboard de Validación del Cliente</h1>
+            <p>Evaluación Completa del Prototipo E-commerce</p>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">🎯</span>
+                    <span class="metric-trend">↑ Excelente</span>
+                </div>
+                <div class="metric-title">Cumplimiento de Objetivo</div>
+                <div class="metric-value">9/9</div>
+                <div class="metric-description">Todas las metas alcanzadas</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">⭐</span>
+                    <span class="metric-trend">Positivo</span>
+                </div>
+                <div class="metric-title">Nivel de Satisfacción</div>
+                <div class="metric-value">Muy Alto</div>
+                <div class="metric-description">Cliente muy contento</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">✅</span>
+                    <span class="metric-trend">Aprobado</span>
+                </div>
+                <div class="metric-title">Respuestas Positivas</div>
+                <div class="metric-value">89%</div>
+                <div class="metric-description">8 de 9 preguntas perfectas</div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-header">
+                    <span class="metric-icon">🚀</span>
+                    <span class="metric-trend">En progreso</span>
+                </div>
+                <div class="metric-title">Áreas de Mejora</div>
+                <div class="metric-value">1</div>
+                <div class="metric-description">Panel de administrador</div>
+            </div>
+        </div>
+
+        <div class="analysis-section">
+            <div class="analysis-header">
+                <h2>📈 Análisis de Usabilidad y Diseño</h2>
+                <p>Evaluación basada en experiencia del usuario y cumplimiento de objetivos</p>
+            </div>
+
+            <div class="charts-grid">
+                <div class="chart-container">
+                    <div class="chart-title">¿El flujo de compra es intuitivo y fácil de completar?</div>
+                    <div class="progress-ring">
+                        <svg width="220" height="220">
+                            <circle class="ring-bg" cx="110" cy="110" r="80"></circle>
+                            <circle class="ring-progress" cx="110" cy="110" r="80"></circle>
+                        </svg>
+                        <div class="center-content">
+                            <span class="percentage">100%</span>
+                            <span class="label">Óptimo</span>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #16A34A;"></span>
+                            <span>Funciona perfecto</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #F59E0B;"></span>
+                            <span>Mejorable</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #DC2626;"></span>
+                            <span>Confuso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <div class="chart-title">¿La interfaz cumple con las expectativas de diseño?</div>
+                    <div class="progress-ring">
+                        <svg width="220" height="220">
+                            <circle class="ring-bg" cx="110" cy="110" r="80"></circle>
+                            <circle class="ring-progress" cx="110" cy="110" r="80"></circle>
+                        </svg>
+                        <div class="center-content">
+                            <span class="percentage">100%</span>
+                            <span class="label">Exacto</span>
+                        </div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #16A34A;"></span>
+                            <span>Exactamente igual</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #2563EB;"></span>
+                            <span>Muy similar</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #DC2626;"></span>
+                            <span>Diferente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 1</span>
+            <div class="question-text">
+                ¿Sientes que cumple con la meta principal del proyecto (hacer que la gente compre fácil)?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, va perfecto
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Cumple más o menos</div>
+                <div class="option">No, se desvía de la idea</div>
+                <div class="option">Aún no lo veo claro</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 2</span>
+            <div class="question-text">
+                ¿Qué tan bien funciona el camino principal del cliente?<br>
+                <small style="color: #6B7280;">(Mirar productos → Agregar al carrito → Pagar → Recibir confirmación)</small>
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Funciona de forma lógica y completa
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Funciona, pero le faltan detalles</div>
+                <div class="option">Está incompleto, faltan pasos clave</div>
+                <div class="option">Es confuso</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 3</span>
+            <div class="question-text">
+                ¿Las opciones de pago (Yape, Plin, Visa, MasterCard, etc.) están claras y bien ubicadas?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, están perfectas
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Están, pero se ven confusas</div>
+                <div class="option">Faltan opciones o no están bien puestas</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 4</span>
+            <div class="question-text">
+                ¿Se entiende fácil cuando un producto se acaba o no hay stock?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, se nota a simple vista
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Más o menos, hay que buscarlo</div>
+                <div class="option">No, no queda claro</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 5</span>
+            <div class="question-text">
+                ¿El prototipo se ve como los diseños aprobados en cuanto a colores, logo y estilo?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, es exactamente igual
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Se parece mucho, con cambios pequeños</div>
+                <div class="option">Hay muchos cambios que no acordamos</div>
+                <div class="option">No se parece en nada</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 6</span>
+            <div class="question-text">
+                Poniéndote en los zapatos del cliente, ¿crees que la web es fácil de entender y usar?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, es muy fácil
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Es aceptable, pero algunas cosas confunden</div>
+                <div class="option">No, es complicada de usar</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 7</span>
+            <div class="question-text">
+                Panel del Administrador: ¿Los números importantes (total de ventas, pedidos) se ven claros?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Sí, se entiende todo de un vistazo
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">La información está, pero desordenada</div>
+                <div class="option">Faltan números importantes</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 8</span>
+            <div class="question-text">
+                ¿Se puede manejar fácil los productos (cambiar precio, stock, poner "agotado")?
+            </div>
+            <div class="options">
+                <div class="option">Sí, sin problemas</div>
+                <div class="option selected">
+                    Faltan opciones para manejar los productos
+                    <span class="status-badge warning">⚠ Área de mejora</span>
+                </div>
+                <div class="option">Es muy complicado hacerlo</div>
+            </div>
+        </div>
+
+        <div class="question-card">
+            <span class="question-number">Pregunta 9</span>
+            <div class="question-text">
+                En resumen, ¿qué tan contento estás con esta versión del prototipo?
+            </div>
+            <div class="options">
+                <div class="option selected">
+                    Muy contento
+                    <span class="status-badge positive">✓ Seleccionado</span>
+                </div>
+                <div class="option">Contento</div>
+                <div class="option">Neutral (Ni bien ni mal)</div>
+                <div class="option">Descontento</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h2>🎉 Resultado Final: Prototipo Aprobado</h2>
+            <p><strong>Acción recomendada:</strong> Implementar mejoras en el panel de administrador para gestión de productos antes del lanzamiento final.</p>
+            <span class="highlight">✓ El cliente está muy satisfecho - Continuar con el desarrollo</span>
+        </div>
+    </div>
+</body>
+</html>
